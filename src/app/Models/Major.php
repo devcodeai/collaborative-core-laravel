@@ -16,6 +16,8 @@ class Major extends Model
         'campus_id',
     ];
 
+    public $timestamps = false;
+
     public function campus()
     {
         return $this->belongsTo(Campus::class);

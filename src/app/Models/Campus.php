@@ -17,6 +17,8 @@ class Campus extends Model
         'website',
     ];
 
+    public $timestamps = false;
+
     public function majors()
     {
         return $this->hasMany(Major::class);

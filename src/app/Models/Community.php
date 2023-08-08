@@ -16,4 +16,6 @@ class Community extends Model
         'description',
         'members',
     ];
+
+    public $timestamps = false;
 }

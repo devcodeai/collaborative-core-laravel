@@ -16,4 +16,6 @@ class Talent extends Model
         'email',
         'skills',
     ];
+
+    public $timestamps = false;
 }
