@@ -63,7 +63,7 @@ class ProductController extends Controller
             return response()->json([
                 'status' => 'Not Found',
                 'message' => 'Create Product Failed, Company with ID ' . $request->company_id . ' Not Found',
-            ], 200);
+            ], 404);
         }
 
         $product = Product::create([
@@ -102,7 +102,7 @@ class ProductController extends Controller
             return response()->json([
                 'status' => 'Not Found',
                 'message' => 'Update Product Failed, Company with ID ' . $request->company_id . ' Not Found',
-            ], 200);
+            ], 404);
         }
 
         $product = Product::find($id);        
