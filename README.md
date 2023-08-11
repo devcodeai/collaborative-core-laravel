@@ -7,7 +7,6 @@
 
 ## Table of Contents
 * [Requirements](#requirements)
-* [Package Dependencies](#package-dependencies)
 * [Run Program](#run-program)
 * [Unit Testing](#unit-testing)
 * [Submission to Devcode](#submission-to-devcode)
@@ -17,32 +16,38 @@
 
 ## Requirements
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-* Laravel
+* [Composer](https://getcomposer.org/)
+* [Laravel](https://laravel.com/)
 * Docker
     * [On Windows](https://docs.docker.com/desktop/install/windows-install/)
     * [On Mac](https://docs.docker.com/desktop/install/mac-install/)
     * [On Linux](https://docs.docker.com/desktop/install/linux-install/)
 
-## Package Dependencies
-* lorem
-* ispum
-* imet `Dev`
-
 ## Run Program
 * Using Local Machine (Windows)
   * Create new database (on MYSQL) as `<database_name>`
-  * Copy `.env.example` to `.env` 
+  * Copy `.env.example` to `.env` in `src` folder
     * Update `MYSQL_DBNAME` configuration as `<database_name>`
     * Update `MYSQL_PASSWORD` configuration as `<your_mysql_password>`
+  * Direct your path to `src` directory
+
+    ```
+    cd src
+    ```
   * Install all the package dependencies
     
     ```
-    npm install
+    composer install
+    ```
+  * Migrate database tables
+    
+    ```
+    php artisan migrate
     ```
   * Start the program
     
     ```
-    npm start
+    php artisan serve --host=0.0.0.0 --port=3030
     ```
   * Open the path on your local machine
     
@@ -65,10 +70,10 @@
       image: <image_name>:<tag>
       restart: always
       ports:
-        - 3031:3030
+        - 8080:3030
     ...
     ```
-  * Run `docker-compose.yaml` file, it may take a few minutes and re-attempts. It works fine, solely wait for the `Server run on http://0.0.0.0:3030` comes out
+  * Run `docker-compose.yaml` file, it may take a few minutes and re-attempts.
 
     ```
     docker-compose -f docker-compose.yaml up
@@ -76,7 +81,7 @@
   * Open the path on your local machine
       
     ```
-    http://localhost:3031/api/
+    http://localhost:8080/api/
     ```
 
 ## Unit Testing
@@ -86,15 +91,15 @@
 * _TODO HERE_
 
 ## Development Guide
+* Migrate database tables
+
+    ```
+    php artisan migrate
+    ```
 * Run the program
 
     ```
-    npm run dev
-    ```
-* Do pre-commit action before bring out your code to the repository
-    
-    ```
-    npm run precommit
+    php artisan serve --host=0.0.0.0 --port=3030
     ```
 
 ## Project Status
